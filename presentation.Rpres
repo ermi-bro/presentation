@@ -1,0 +1,59 @@
+Presentation
+========================================================
+author: Developing Data Products Student 
+date: `r date()`
+
+Exploring Motor Trend Car Road Tests
+========================================================
+
+In this presentation, I will explore mtcars (Motor Tend Car Road Tesets) data. The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
+
+The mtcars data exploration includes the following steps:
+
+- Load the data and check number of variables and number of observations
+- Convert variables into appropriate data type and produce summary statistics
+- Explor the data using plots
+
+Load the data
+========================================================
+
+```{r}
+    library(datasets)
+    str(mtcars)
+```
+
+Convert numberic variables into factors
+========================================================
+
+```{r}
+mtcars$cyl <- factor(mtcars$cyl,
+                    levels=c(4,6,8),
+                    labels=c("4 cyl","6 cyl","8 cyl"))
+
+mtcars$gear <- factor(mtcars$gear,
+                    levels=c(3,4,5), 
+                    labels=c("3 gear","4 gear","5 gear"))
+
+mtcars$am <- factor(mtcars$am,
+                     levels=c(0,1), 
+                     labels=c("automatic","manual"))
+
+mtcars$carb <- factor(mtcars$carb,
+                   levels=c(1,2,3,4,6,8), 
+                   labels=c("1 carburetor","2 carburetors","3 carburetors",
+                            "4 carburetors","6 carburetors","8 carburetors"))
+```
+
+Produce summary statistics
+========================================================
+
+```{r}
+    summary(mtcars)
+```
+
+Slide With Plot
+========================================================
+
+```{r, echo=FALSE}
+plot(cars)
+```
